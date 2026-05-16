@@ -8,9 +8,9 @@ A University Forums application built with Flutter and Firebase, allowing studen
 
 | Student ID | Name |
 |---|---|
-| 22K-XXXX | Member 1 Name |
-| 22K-XXXX | Member 2 Name |
-| 22K-XXXX | Member 3 Name |
+| 22K-4376 | Khubaib Ahmed Jamil |
+| 22K-4367 | Ayan Hasan |
+| 22K-4482 | Muhammad Ahmed |
 
 > ⚠️ Replace the above with your actual student IDs and names.
 
