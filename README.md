@@ -12,8 +12,6 @@ A University Forums application built with Flutter and Firebase, allowing studen
 | 22K-4367 | Ayan Hasan |
 | 22K-4482 | Muhammad Ahmed |
 
-> ⚠️ Replace the above with your actual student IDs and names.
-
 ---
 
 ## 🚀 Features
@@ -113,9 +111,6 @@ topics/                          ← collection
 
 ### 💬 Replies Page
 ![Replies Page](images/replies.png)
-
-> ⚠️ Add your screenshots to an `images/` folder in the root of the repo and rename them to match the above.
-
 ---
 
 ## ⚙️ How to Run
