@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "636843638005",
+    "project_id": "uniforums-fdafd",
+    "storage_bucket": "uniforums-fdafd.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:636843638005:android:0d68227c65edd3f81919bc",
+        "android_client_info": {
+          "package_name": "com.example.uni_forums"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBSjk9JfIAN91KnXgdCMU1zlavpzhTTBzE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
