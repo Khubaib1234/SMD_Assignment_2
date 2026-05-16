@@ -1,38 +1,184 @@
-# uni_forums
+# 🎓 FAST NUCES Forums (Flutter)
 
-## Showcase
+A University Forums application built with Flutter and Firebase, allowing students to create discussion topics and reply to them in real time.
 
-A sample forum app built with Flutter, displaying threaded topics and replies.
+---
 
-<p float="left">
-  <img src="assets/SS%201.png" alt="Screenshot 1" width="320" />
-  <img src="assets/SS%202.png" alt="Screenshot 2" width="320" />
-</p>
+## 👨‍💻 Group Members
 
-## Overview
+| Student ID | Name |
+|---|---|
+| 22K-XXXX | Member 1 Name |
+| 22K-XXXX | Member 2 Name |
+| 22K-XXXX | Member 3 Name |
 
-`uni_forums` is a Flutter demo app that showcases a simple forum interface with:
+> ⚠️ Replace the above with your actual student IDs and names.
 
-- A list of discussion topics
-- Reply threads with avatars, timestamps, and like counts
-- A `Topic` data model and `Reply` data model stored in `lib/data.dart`
-- Navigation from topic list to reply details
+---
 
-## Project Structure
+## 🚀 Features
 
-- `lib/main.dart` – app entry point and topic list UI
-- `lib/replies_page.dart` – reply detail page and reply list rendering
-- `lib/data.dart` – hardcoded forum data for topics and replies
-- `lib/utility.dart` – date formatting helper functions
-- `assets/` – screenshot images used for showcase and project visuals
+* 🔐 Email & Password Authentication (Sign Up / Login / Logout)
+* 📋 View all forum topics in real time
+* ➕ Create new forum topics
+* 💬 Reply to existing topics
+* 👤 Author name and timestamps shown on all posts
+* ⏳ Loading indicators while fetching and posting data
+* ⚠️ Validation and error handling on all inputs
+* 🔄 Real-time updates from Firestore
 
-## Running the App
+---
 
-1. Install Flutter and set up your development environment.
-2. Run `flutter pub get` in the project root.
-3. Launch the app with `flutter run`.
+## 🛠️ Tech Stack
 
-## Notes
+* **Flutter** — UI Framework
+* **Firebase Auth** — Email/Password Authentication
+* **Cloud Firestore** — Real-time Database
+* **flutter_bloc** — BloC State Management
+* **Mockito** — Unit Testing with Stubs
 
-- Avatar images are loaded from remote URLs.
-- The app currently uses static sample data and is intended for demo/assignment purposes.
+---
+
+## 🏗️ Architecture
+
+This project follows **BloC Architecture** with a **separate local Firebase package**:
+
+```
+uni_forums/
+├── lib/                          # Main App
+│   ├── auth/
+│   │   ├── bloc/                 # AuthBloc, AuthEvent, AuthState
+│   │   ├── login_page.dart
+│   │   └── signup_page.dart
+│   ├── topics/
+│   │   └── bloc/                 # TopicsBloc, TopicsEvent, TopicsState
+│   ├── replies/
+│   │   └── bloc/                 # RepliesBloc, RepliesEvent, RepliesState
+│   ├── main.dart
+│   ├── replies_page.dart
+│   └── utility.dart
+│
+└── firebase_module/              # Separate Local Package
+    ├── lib/
+    │   ├── src/
+    │   │   ├── models/
+    │   │   │   ├── topic_model.dart
+    │   │   │   └── reply_model.dart
+    │   │   └── services/
+    │   │       ├── auth_service.dart
+    │   │       └── db_service.dart
+    │   └── firebase_module.dart
+    └── test/
+        └── auth_service_test.dart
+```
+
+---
+
+## 🗄️ Firestore Structure
+
+```
+topics/                          ← collection
+  {topicId}/                     ← document
+    title: string
+    originalPoster: string
+    authorId: string
+    creationDate: timestamp
+    isNew: boolean
+    replies/                     ← subcollection
+      {replyId}/                 ← document
+        content: string
+        replier: string
+        authorId: string
+        replyDate: timestamp
+        likes: number
+```
+
+---
+
+## 🌐 Firebase Setup
+
+* **Authentication** — Email/Password enabled
+* **Firestore** — Cloud database for topics and replies
+* **firebase_module** — Separate Flutter package handling all Firebase logic
+
+---
+
+## 📸 Screenshots
+
+### 🔐 Sign In Page
+![Sign In](images/signin.png)
+
+### 🏠 Home Page (Topics List)
+![Home Page](images/home.png)
+
+### 💬 Replies Page
+![Replies Page](images/replies.png)
+
+> ⚠️ Add your screenshots to an `images/` folder in the root of the repo and rename them to match the above.
+
+---
+
+## ⚙️ How to Run
+
+1. Clone the repository:
+```bash
+git clone https://github.com/YOUR_USERNAME/uni_forums.git
+cd uni_forums
+```
+
+2. Install dependencies:
+```bash
+flutter pub get
+cd firebase_module && flutter pub get && cd ..
+```
+
+3. Configure Firebase:
+```bash
+dart pub global activate flutterfire_cli
+flutterfire configure
+```
+
+4. Run the app:
+```bash
+flutter run
+```
+
+---
+
+## 🧪 Running Tests
+
+```bash
+cd firebase_module
+dart run build_runner build
+flutter test test/auth_service_test.dart
+```
+
+---
+
+## ⚠️ Requirements
+
+* Flutter SDK
+* Firebase project with Email/Password Auth enabled
+* Firestore database created in test mode
+* `google-services.json` placed in `android/app/`
+
+---
+
+## 📦 Dependencies
+
+### Main App
+| Package | Purpose |
+|---|---|
+| `firebase_core` | Firebase initialization |
+| `firebase_auth` | Authentication |
+| `cloud_firestore` | Database |
+| `flutter_bloc` | State management |
+| `equatable` | State comparison |
+
+### Firebase Module
+| Package | Purpose |
+|---|---|
+| `firebase_auth` | Auth service |
+| `cloud_firestore` | DB service |
+| `mockito` | Unit test stubs |
+| `build_runner` | Code generation |
